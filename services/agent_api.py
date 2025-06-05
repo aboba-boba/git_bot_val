@@ -9,9 +9,7 @@ _cache = {
 }
 
 async def fetch_agents():
-    """
-    Возвращает список агентов из API или из кэша, если не прошло CACHE_TTL секунд.
-    """
+    # I'll be back (api cache)
     now = time.time()
     if _cache["agents"] is not None and now - _cache["ts"] < CACHE_TTL:
         return _cache["agents"]
@@ -27,10 +25,7 @@ async def fetch_agents():
             return agents
 
 async def get_agent_info(name: str) -> str:
-    """
-    Ищет агента по displayName (substring, регистронезависимо)
-    и возвращает отформатированный Markdown с описанием и умениями.
-    """
+    #I'll find you, my pretty(agent finder))
     agents = await fetch_agents()
     search = name.lower()
 
@@ -50,10 +45,10 @@ async def get_agent_info(name: str) -> str:
                 "*Умения:*"
             ]
             emoji_map = {
-                "Ability1": "1️⃣",
-                "Ability2": "2️⃣",
-                "Grenade": "💣",
-                "Ultimate": "🌟"
+                "Ability1": "E",
+                "Ability2": "Q",
+                "Grenade": "C",
+                "Ultimate": "X"
             }
             for ab in abilities:
                 slot = ab.get("slot", "")

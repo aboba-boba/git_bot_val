@@ -21,7 +21,7 @@ load_dotenv(BASE_DIR / ".env")
 #api
 TG_TOKEN = os.getenv("TG_TOKEN")
 if not TG_TOKEN:
-    raise RuntimeError("⚠️ Не найден TG_TOKEN в .env")
+    raise RuntimeError("Не найден TG_TOKEN в .env")
 
 # api link
 AGENT_API_URL = "https://valorant-api.com/v1/agents"
