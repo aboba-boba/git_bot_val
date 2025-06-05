@@ -19,7 +19,7 @@
 1. **Клонировать репозиторий**:
 
 ```bash
-git clone <ссылка на ваш GitHub>
+git clone <https://github.com/aboba-boba/git_bot_val>
 cd git_bot_val-main
 ```
 
@@ -42,6 +42,8 @@ pip install -r requirements.txt
 BOT_TOKEN=токен от BotFather(без пробелов)
 ```
 
+5. **Создать "banned.txt" и "admin_id.txt" в корне проекта**
+
 5. **Запустить бота**:
 
 ```bash
@@ -51,16 +53,16 @@ python val_bot.py
 ## Структура проекта
 
 ```
-.
-├── val_bot.py                 # Главный файл запуска бота
-├── config/settings.py         # Конфигурация проекта (.env, токен и прочее)
-├── keyboards/                 # Файлы с кнопками (inline, reply)
-├── filters/                   # Пользовательские фильтры (например, admin)
-├── middlewares/throttling.py # Middleware для антиспама
-├── services/agent_api.py     # API GitHub запросов
-├── services/favorites.py     # Работа с локальным JSON хранилищем
-├── requirements.txt          # Зависимости проекта
-└── bot.log                   # Лог файл
+
+    val_bot.py                 # Главный файл запуска бота
+    config/settings.py         # Конфигурация проекта (.env, токен и прочее)
+    keyboards/                 # Файлы с кнопками (inline, reply)
+    filters/                   # Пользовательские фильтры (например, admin)
+    middlewares/throttling.py # Middleware для антиспама
+    services/agent_api.py     # API GitHub запросов
+    services/favorites.py     # Работа с локальным JSON хранилищем
+    requirements.txt          # Зависимости проекта
+    bot.log                   # Лог файл
 ```
 
 ## Функциональность и соответствие ТЗ
@@ -79,10 +81,23 @@ python val_bot.py
 | Middleware                               
 | Кастомные фильтры                        
 | README с инструкцией                     
-| Проектная структура по шаблону            
+| Проектная структура по шаблону   
+| Админ панель         
 
 ## Безопасность
 
 Все чувствительные данные, включая токен, хранятся в `.env`. В `.gitignore` прописано исключение для `.env`.
 
-
+## Команды 
+**Список команд пользователей:**
+/start — запустить бота
+/help — показать этот список
+/agentinfo [имя] — инфо агента
+/favorite add|remove [имя] — добавить/убрать из избранного
+/listfavorites — мои избранные агенты
+/listagents — список всех агентов
+**Список команд админа:**
+/ban [] - Блокировка по ID
+/unban [] - разблокировка по ID
+/stats - кол-во пользователей
+/broadcast - Общая рассылка
